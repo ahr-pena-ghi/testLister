@@ -11,11 +11,12 @@
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
-                <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
-            </div>
+                <div class="col-md-6">
+                    <h2><a href="http://localhost:8080/individualad?id=${ad.id}">${ad.title}</a></h2>
+                    <p>${ad.description}</p>
+                </div>
         </c:forEach>
     </div>
+
 </body>
 </html>
