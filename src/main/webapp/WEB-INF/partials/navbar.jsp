@@ -3,6 +3,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <a class="navbar-brand" href="/ads">Adlister</a>
+            <input id="search" class="" type="text" onkeyup="searchAds()" placeholder="Enter Ad title">
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/login">Login</a></li>
