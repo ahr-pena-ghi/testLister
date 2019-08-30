@@ -5,6 +5,9 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String phone_number;
+    private String city;
+    private String state;
 
     public User() {}
 
@@ -14,11 +17,14 @@ public class User {
         this.password = password;
     }
 
-    public User(long id, String username, String email, String password) {
+    public User(long id, String username, String email, String password,String phone_number, String city, String state) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.phone_number = phone_number;
+        this.city = city;
+        this.state = state;
     }
 
     public long getId() {
@@ -52,4 +58,16 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getPhone_number() {return phone_number;}
+
+    public void setPhone_number(String phone_number) { this.phone_number = phone_number;}
+
+    public String getCity() {return city;}
+
+    public void setCity(String city) {this.city = city;}
+
+    public String getState() {return state;}
+
+    private void setState(String state) { this.state = state;}
 }

@@ -19,6 +19,10 @@
                 <input id="email" name="email" class="form-control" type="text">
             </div>
             <div class="form-group">
+                <label for="phone_number">Email</label>
+                <input id="phone_number" name="phone_number" class="form-control" type="text">
+            </div>
+            <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
