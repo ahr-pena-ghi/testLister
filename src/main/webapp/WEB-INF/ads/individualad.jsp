@@ -14,9 +14,15 @@
 </head>
 <body>
 <h1>ad details</h1>
-<p><c:out value="${sessionScope.username}"/></p>
+<p><c:out value="${sessionScope.user.username}"/></p>
 <p><c:out value="${ad.title}"/></p>
+<%--<p><c:out value="${ad.listed_on}"/></p>--%>
+<%--<p><c:out value="${ad.picture}"/></p>--%>
 <p><c:out value="${ad.description}"/></p>
+<%--<p><c:out value="${ad.price}"/></p>--%>
+
+
+
 
 </body>
 </html>
