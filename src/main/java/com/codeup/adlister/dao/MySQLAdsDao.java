@@ -40,13 +40,49 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> usersAds(Long idOfUser) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads where user_id = ?");
+            stmt = connection.prepareStatement("SELECT * FROM ads where user_id =" + idOfUser);
+
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error retrieving users ads.", e);
         }
     }
+
+
+    @Override
+    public void deleteAd(Long id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("DELETE FROM ads WHERE id =" + id);
+             stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ads");
+        }
+    }
+
+    @Override
+    public void updateAd(Ad ad) {
+        PreparedStatement stmt = null;
+        try{
+            stmt = connection.prepareStatement("UPDATE ads SET id = ?, user_id = ?, title = ?, description = ?, price = ?, picture = ? WHERE id =" + ad.getId());
+            stmt.setLong(1, ad.getId());
+            stmt.setLong(2, ad.getUserId());
+            stmt.setString(3, ad.getTitle());
+            stmt.setString(4, ad.getDescription());
+            stmt.setString(5, ad.getPrice());
+            stmt.setString(6, ad.getPicture());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating ads");
+        }
+    }
+
+
+
+
+
+
 
     @Override
     public Long insert(Ad ad) {
@@ -98,6 +134,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error finding Ad", e);
         }
     }
+
+
 
 
 }
