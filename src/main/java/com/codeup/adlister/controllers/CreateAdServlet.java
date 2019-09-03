@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.CategsAds;
 import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
@@ -10,12 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/login?test=hello");
             return;
         }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
@@ -31,7 +35,14 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("price"),
             request.getParameter("picture")
         );
-        DaoFactory.getAdsDao().insert(ad);
+        Long adId = DaoFactory.getAdsDao().insert(ad);
+        String[] categories = request.getParameterValues("category_id");
+        List<String> cats = Arrays.asList(categories);
+        for (String c: cats) {
+            CategsAds categsAds = new CategsAds(Long.parseLong(c), adId);
+            DaoFactory.getAdsDao().insertCategoryAds(categsAds);
+
+        }
         response.sendRedirect("/profile");
     }
 }

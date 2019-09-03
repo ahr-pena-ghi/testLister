@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,11 +9,15 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
+        <%-- use the below logic to create a hidden input in the form that indicates what page to redirect to --%>
+        <c:if test="${param.test != null}">
+            <h1>Hello</h1>
+        </c:if>
         <h1>Please Log In</h1>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" value="${username}">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

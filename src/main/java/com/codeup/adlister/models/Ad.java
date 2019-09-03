@@ -72,4 +72,5 @@ public class Ad {
     public void setPicture(String picture) {
         this.picture = picture;
     }
+
 }
