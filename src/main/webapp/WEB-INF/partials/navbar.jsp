@@ -10,6 +10,7 @@
     <c:choose>
 
     <c:when test="${sessionScope.user != null}">
+        <li><a href="/profile">Profile</a></li>
         <li><a href="/ads/create">Create Ad</a></li>
         <li><a href="/logout">Logout</a></li>
 
@@ -18,6 +19,7 @@
         <li><a href="/ads/create">Create Ad</a></li>
         <li><a href="/register">Register</a></li>
         <li><a href="/login">Login</a></li>
+
         </ul>
     </c:when>
     </c:choose>
