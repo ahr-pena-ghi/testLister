@@ -27,6 +27,12 @@ public class RegServlet extends HttpServlet {
         String city = request.getParameter("city");
         String state = request.getParameter("state");
 
+        if (request.getParameter("username") == null) {username = "";}
+        if (phone_number == null) {phone_number = "";}
+        if (email == null) {email = "";}
+        if (city == null) {city = "";}
+        if (state == null) {state = "";}
+
         // validate input
         boolean inputHasErrors = username.isEmpty()
                 || phone_number.isEmpty()
@@ -37,6 +43,11 @@ public class RegServlet extends HttpServlet {
                 || state.isEmpty();
 
         if (inputHasErrors) {
+            request.getSession().setAttribute("usernameValue", username);
+            request.getSession().setAttribute("phoneNumberValue", phone_number);
+            request.getSession().setAttribute("emailValue", email);
+            request.getSession().setAttribute("cityValue", city);
+            request.getSession().setAttribute("stateValue", state);
             response.sendRedirect("/register");
             return;
         }

@@ -51,6 +51,16 @@ public class IndividualAdServlet extends HttpServlet {
             String stringValueOfId = request.getParameter("edit");
             Long norId = Long.parseLong(stringValueOfId);
 
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
+            String price = request.getParameter("price");
+            String picture = request.getParameter("picture");
+
+            request.getSession().setAttribute("titleValue", title);
+            request.getSession().setAttribute("descriptionValue", description);
+            request.getSession().setAttribute("priceValue", price);
+            request.getSession().setAttribute("pictureValue", picture);
+
             Ad ad = new Ad(
                     norId,
                     user.getId(),

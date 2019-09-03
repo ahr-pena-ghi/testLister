@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,20 +8,27 @@
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
+<%--    <script>--%>
+<%--        if (session.getAttribute("usernameValue") == null) {--%>
+<%--            request.getSession().setAttribute("usernameValue", "");--%>
+<%--        } else {--%>
+<%--            console.log("i");--%>
+<%--        }--%>
+<%--    </script>--%>
     <div class="container">
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" value="${usernameValue}">
             </div>
             <div class="form-group">
                 <label for="phone_number">Phone Number</label>
-                <input id="phone_number" name="phone_number" class="form-control" type="text">
+                <input id="phone_number" name="phone_number" class="form-control" type="text" value="${phoneNumberValue}">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text">
+                <input id="email" name="email" class="form-control" type="text" value="${emailValue}">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -32,11 +40,11 @@
             </div>
             <div class="form-group">
                 <label for="city">City</label>
-                <input id="city" name="city" class="form-control" type="text">
+                <input id="city" name="city" class="form-control" type="text" value="${cityValue}">
             </div>
             <div class="form-group">
                 <label for="state">State</label>
-                <input id="state" name="state" class="form-control" type="text">
+                <input id="state" name="state" class="form-control" type="text" value="${stateValue}">
             </div>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
