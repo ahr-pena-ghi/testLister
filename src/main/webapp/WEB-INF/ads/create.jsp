@@ -38,7 +38,7 @@
                 <input name="category_id" class="form-control" type="checkbox" value="10">Other</input>
             </div>
 
-            id="category_id" name="category_id" class="form-control"
+<%--            id="category_id" name="category_id" class="form-control"--%>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
