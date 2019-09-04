@@ -16,11 +16,16 @@
     <style><%@include file="/WEB-INF/partials/style.css"%></style>
 </head>
 <body>
+<script>
+    var usId = "${ad.userId}";
+</script>
+
 
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
+<p></p>
 <h3><a href="/"> Back to ads list</a></h3>
-<p><c:out value="${sessionScope.user.username}"/></p>
+<p><c:out value="${user[usId].username}"/></p>
 <h1><c:out value= "${ad.title}"/> - $${ad.price}</h1>
 <div class="container ad-img-view">
     <img src="${ad.picture}" alt="Ad image"/>
@@ -52,34 +57,34 @@
         </div>
         <div class="form-group">
             <input name="category_id" class="form-control" type="checkbox" value="1"
-            <c:if test="${cats}.indexOf(1) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(1) > -1"> checked </c:if>
             >Games</input>
             <input name="category_id" class="form-control" type="checkbox" value="2"
-            <c:if test="${cats}.indexOf(2) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(2) > -1"> checked </c:if>
             >Automotive</input>
             <input name="category_id" class="form-control" type="checkbox" value="3"
-            <c:if test="${cats}.indexOf(3) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(3) > -1"> checked </c:if>
             >Furniture</input>
             <input name="category_id" class="form-control" type="checkbox" value="4">
-            <c:if test="${cats}.indexOf(4) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(4) > -1"> checked </c:if>
             Electronics</input>
             <input name="category_id" class="form-control" type="checkbox" value="5">
-            <c:if test="${cats}.indexOf(5) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(5) > -1"> checked </c:if>
             Jobs</input>
             <input name="category_id" class="form-control" type="checkbox" value="6">
-            <c:if test="${cats}.indexOf(6) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(6) > -1"> checked </c:if>
             Tools</input>
             <input name="category_id" class="form-control" type="checkbox" value="7">
-            <c:if test="${cats}.indexOf(7) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(7) > -1"> checked </c:if>
             Sports</input>
             <input name="category_id" class="form-control" type="checkbox" value="8">
-            <c:if test="${cats}.indexOf(8) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(8) > -1"> checked </c:if>
             Arts & Crafts</input>
             <input name="category_id" class="form-control" type="checkbox" value="9">
-            <c:if test="${cats}.indexOf(9) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(9) > -1"> checked </c:if>
             Animals</input>
             <input name="category_id" class="form-control" type="checkbox" value="10">
-            <c:if test="${cats}.indexOf(10) > -1"> checked </c:if>
+            <c:if test="${categories}.indexOf(10) > -1"> checked </c:if>
             Other</input>
         </div>
         <button id="delete" name="delete"  type="submit" value="${ad.id}">Delete</button>

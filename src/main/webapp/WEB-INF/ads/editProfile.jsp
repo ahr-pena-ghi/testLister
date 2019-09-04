@@ -8,9 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Edit Profile</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Edit profile" />
+    </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <h1>Edit Profile</h1>
 <form action="/profile/edit" method="POST">
 
@@ -19,7 +22,7 @@
     <input id="username" name="username" class="form-control" type="text" value="${user.username}">
 </div>
 <div class="form-group">
-    <label for="email">Description</label>
+    <label for="email">Email</label>
     <textarea id="email" name="email" class="form-control">${user.email}</textarea>
 </div>
 <div class="form-group">
