@@ -12,6 +12,8 @@
 <div class="container">
 
     <h1>Welcome, ${sessionScope.user.username}!</h1>
+    <a href="/profile/edit">Edit Profile</a>
+
 
     <c:forEach var="ad" items="${ads}">
         <form action="/profile" method="POST">
@@ -20,9 +22,9 @@
             <p>${ad.description}</p>
 <%--            <p>${ad.price}</p>--%>
 <%--            <p>${ad.picture}</p>--%>
-    </c:forEach>
+        </div>
+        </c:forEach>
 
-</div>
 </div>
 
 </body>

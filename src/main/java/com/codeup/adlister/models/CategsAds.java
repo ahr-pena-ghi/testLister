@@ -24,4 +24,12 @@ public class CategsAds {
     public void setAdId(Long adId) {
         this.adId = adId;
     }
+
+    @Override
+    public String toString() {
+        return "CategsAds{" +
+                "categId=" + categId +
+                ", adId=" + adId +
+                '}';
+    }
 }

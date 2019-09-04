@@ -94,6 +94,8 @@ public class MySQLAdsDao implements Ads {
 
     }
     public List<CategsAds> findCategoriesByAdId(Long adId) {
+//        String  query = "SELECT * FROM ads JOIN categs_ads ON ad_id = ?";
+//        String query = "SELECT ads.title AS ad_title, ads.description AS ad_description FROM ads JOIN categs_ads ON ad_id = ?";
         String query = "SELECT * FROM categs_ads WHERE ad_id = ?";
         try {
             List<CategsAds> cats = new ArrayList<>();

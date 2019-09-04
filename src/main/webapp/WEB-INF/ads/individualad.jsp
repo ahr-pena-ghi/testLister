@@ -16,6 +16,7 @@
     <style><%@include file="/WEB-INF/partials/style.css"%></style>
 </head>
 <body>
+
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <h3><a href="/"> Back to ads list</a></h3>

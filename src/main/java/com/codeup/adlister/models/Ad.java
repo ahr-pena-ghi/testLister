@@ -7,6 +7,7 @@ public class Ad {
     private String description;
     private String price;
     private String picture;
+    private CategsAds categsAds;
 
     public Ad(long id, long userId, String title, String description, String price, String picture) {
         this.id = id;
@@ -23,6 +24,18 @@ public class Ad {
         this.description = description;
         this.price = price;
         this.picture = picture;
+    }
+
+    // Cat Ads
+
+    public Ad(long userId, String title, String description, String price, String picture, CategsAds categsAds) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.picture = picture;
+        this.categsAds = categsAds;
+
     }
 
     public long getId() {
@@ -73,4 +86,23 @@ public class Ad {
         this.picture = picture;
     }
 
+    public CategsAds getCategsAds() {
+        return categsAds;
+    }
+
+    public void setCategsAds(CategsAds categsAds) {
+        this.categsAds = categsAds;
+    }
+
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", price='" + price + '\'' +
+                ", picture='" + picture + '\'' +
+                '}';
+    }
 }
