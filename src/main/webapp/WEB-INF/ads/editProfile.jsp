@@ -46,6 +46,7 @@
         <label for="state">State</label>
         <input id="state" name="state" class="form-control" type="text">
     </div>
+
 <button id="edit" name="edit"  type="submit" value="${user.id}">Edit</button>
 </form>
 
