@@ -1,3 +1,31 @@
-.form-group {
+.empty-field {
+    border-color: indianred;
+}
+.empty-header {
+    font-weight: bold;
+    color: red;
+}
+.error-hint {
+    color: red;
     display: none;
+}
+.ad-div {
+    border: 1px steelblue solid;
+    border-radius: 3px;
+    background-color: #DFF;
+    margin: 10px 15px;
+    box-sizing: content-box;
+    height: 115px;
+}
+.listed-by {
+    float: right;
+    position: relative;
+}
+.ad-img-view {
+    max-height: 300px;
+}
+.ad-img-view>img {
+    margin: auto;
+    vertical-align: center;
+    max-height: 300px;
 }

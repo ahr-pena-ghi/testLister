@@ -10,17 +10,22 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="${ad.title} - Adlister" />
+    </jsp:include>
+    <style><%@include file="/WEB-INF/partials/style.css"%></style>
 </head>
 <body>
-<h1>ad details</h1>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+<h3><a href="/"> Back to ads list</a></h3>
 <p><c:out value="${sessionScope.user.username}"/></p>
-<p><c:out value="${ad.title}"/></p>
-<p><c:out value="${ad.price}"/></p>
-
-
-<img src="${ad.picture}"/>
-
+<h1><c:out value= "${ad.title}"/> - $${ad.price}</h1>
+<div class="container ad-img-view">
+    <img src="${ad.picture}" alt="Ad image"/>
+</div>
+<br>
+<h4><c:out value= "${ad.description}"/></h4>
 
 <c:if test="${sessionScope.user != null && sessionScope.user.id == ad.userId}">
 
