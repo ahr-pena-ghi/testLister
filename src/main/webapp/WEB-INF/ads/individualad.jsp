@@ -17,6 +17,7 @@
 <p><c:out value="${sessionScope.user.username}"/></p>
 <p><c:out value="${ad.title}"/></p>
 <p><c:out value="${ad.price}"/></p>
+<p><c:out value="${categs_ads.id}"/></p>
 
 
 <img src="${ad.picture}"/>

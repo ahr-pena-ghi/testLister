@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 import org.mindrot.jbcrypt.BCrypt;
@@ -69,5 +70,25 @@ public class MySQLUsersDao implements Users {
             rs.getString("state")
         );
     }
+
+
+    public void updateUser(User user) {
+        PreparedStatement stmt = null;
+        try{
+            stmt = connection.prepareStatement("UPDATE users SET id = ?, username = ?, email = ?, phone_number=?, password = ?, city = ?, state = ? WHERE id =" + user.getId());
+            stmt.setLong(1,user.getId());
+            stmt.setString(2, user.getUsername());
+            stmt.setString(3, user.getPhone_number());
+            stmt.setString(4, user.getEmail());
+            stmt.setString(5, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+            stmt.setString(6, user.getCity());
+            stmt.setString(7, user.getState());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+
+    }
+
 
 }
