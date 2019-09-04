@@ -69,13 +69,9 @@ public class IndividualAdServlet extends HttpServlet {
                     request.getParameter("price"),
                     request.getParameter("picture")
             );
-
-
             String[] categories = request.getParameterValues("category_id");
             List<String> cats = Arrays.asList(categories);
             List<CategsAds> categoriesFromDB = DaoFactory.getAdsDao().findCategoriesByAdId(norId);
-            System.out.println(categoriesFromDB.toString());
-
 
             for (String c : cats) {
                 if (!categoriesFromDB.contains(c)) {
